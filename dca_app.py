@@ -18,7 +18,7 @@ try:
         sl.write(data)
 
     # Subheader
-    sl.subheader("Características del pozo", divider="gray")
+    sl.subheader("Definición del pozo", divider="gray")
     
     col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
     with col1:
