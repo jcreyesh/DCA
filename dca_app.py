@@ -62,12 +62,12 @@ if file is not None:
                                     step=timedelta(days=1))
     sl.write(start_date, end_date)
     data = data[(data["fecha"] >= start_date - relativedelta(months=1)) & (data["fecha"] <= end_date)]
-    sl.write(data)
+    # sl.write(data)
+    plot_q(data, data["fecha"], data["q"])
+
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
-
-
 
 
 # df_pozo = data_pozos[data_pozos["Pozo"] == select_pozo]
