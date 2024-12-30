@@ -10,6 +10,7 @@ import altair as alt
 sl.set_page_config(layout="wide")
 # Sidebar
 sl.title("Análisis de Curvas de Declinación")
+
 try:
     file = sl.file_uploader("Seleccione la base de datos")
     if file is not None:
@@ -20,8 +21,8 @@ try:
 except:
     sl.write("Aún no se ha cargado la Base de Datos.")
 
-    # Subheader
-    sl.subheader("Definición del pozo", divider="gray")
+# Subheader
+sl.subheader("Definición del pozo", divider="gray")
     
 col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
 with col1:
