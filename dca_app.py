@@ -60,7 +60,7 @@ if file is not None:
     start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY/MM/DD", 
                                     step=timedelta(days=1))
     sl.write(start_date, end_date)
-    data = data[(data["fecha"] > start_date) & (data["fecha"] < end_date)]
+    data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
     sl.write(data)
 
 elif file == None:
