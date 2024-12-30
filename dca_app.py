@@ -60,8 +60,8 @@ if file is not None:
     start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY/MM/DD", 
                                     step=timedelta(days=1))
     sl.write(start_date, end_date)
-
-
+    data = data[(data["fecha"] >= date_1 & (data["fecha"] <= date_2)]
+    sl.write(data)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
