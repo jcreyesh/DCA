@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import datetime
 import streamlit as sl
 import altair as alt
 
@@ -9,14 +10,14 @@ import altair as alt
 sl.set_page_config(layout="wide")
 
 try:
-    file = sl.file_uploader("Cargar la base de datos.")
+    file = sl.file_uploader("Seleccione la base de datos")
     if file is not None:
         data = pd.read_csv(file, encoding="latin-1")
         # df["Contrato"].fillna("", inplace = True)
         # sl.write(data)
     
     # Sidebar
-    sl.title("Producción por Pozo")
+    sl.title("Análisis de Curvas de Declinación :")
     lista_cuencas = list(data.Cuenca.unique())
     select_cuenca = sl.selectbox("Seleccion la Cuenca", lista_cuencas)
     
