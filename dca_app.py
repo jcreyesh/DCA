@@ -5,6 +5,10 @@ import plotly.express as px
 import datetime
 import streamlit as sl
 import altair as alt
+import plotly.io as pio
+
+# image-dpi
+pio.write_image(fig. "imagename.png", width=500, height=350, scale =1)
 
 # wide-mode
 sl.set_page_config(layout="wide")
