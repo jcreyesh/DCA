@@ -19,43 +19,44 @@ if file is not None:
     data = pd.read_csv(file, encoding="latin-1")
     sl.write(data)
 
+    # Subheader
+    sl.subheader("Definición del pozo", divider="gray")
+        
+    col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
+    with col1:
+        lista_campo = list(data.campo.unique())
+        select_campo = sl.selectbox("Campo", lista_campo)
+        data = data[data["campo"] == select_campo]
+    with col2:
+        lista_yac = list(data.yacimiento.unique())
+        select_yac = sl.selectbox("Yacimiento", lista_yac)
+        data = data[data["yacimiento"] == select_yac]
+    with col3:
+        lista_pozo = list(data.pozo.unique())
+        select_pozo = sl.selectbox("Pozo", lista_pozo)
+        data = data[data["pozo"] == select_pozo]
+    with col4:
+        lista_fluido = list(data.unidad.unique())
+        select_fluido = sl.selectbox("Fluido", lista_fluido)
+        data = data[data["unidad"] == select_fluido]
+    
+    sl.subheader("Histórico de producción", divider="gray")
+    
+    # Function for plotting flow rate
+    def plot_q(df, x, y):
+        fig = px.line(df, x=x, y=y, markers=True, labels={"q": "q - (Mb / MMPCD)"})
+        fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
+        fig.update_traces(line_color="#339966")
+        fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+        fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+        return fig
+    
+    plot_q(data, data["Fecha"], data["q"])
+
+
+
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
-
-# Subheader
-sl.subheader("Definición del pozo", divider="gray")
-    
-col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
-with col1:
-    lista_campo = list(data.campo.unique())
-    select_campo = sl.selectbox("Campo", lista_campo)
-    data = data[data["campo"] == select_campo]
-with col2:
-    lista_yac = list(data.yacimiento.unique())
-    select_yac = sl.selectbox("Yacimiento", lista_yac)
-    data = data[data["yacimiento"] == select_yac]
-with col3:
-    lista_pozo = list(data.pozo.unique())
-    select_pozo = sl.selectbox("Pozo", lista_pozo)
-    data = data[data["pozo"] == select_pozo]
-with col4:
-    lista_fluido = list(data.unidad.unique())
-    select_fluido = sl.selectbox("Fluido", lista_fluido)
-    data = data[data["unidad"] == select_fluido]
-
-sl.subheader("Histórico de producción", divider="gray")
-
-# Function for plotting flow rate
-def plot_q(df, x, y):
-    fig = px.line(df, x=x, y=y, markers=True, labels={"q": "q - (Mb / MMPCD)"})
-    fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
-    fig.update_traces(line_color="#339966")
-    fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-    fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-    return fig
-
-plot_q(data, data["Fecha"], data["q"])
-
 
 
 
