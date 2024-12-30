@@ -17,6 +17,9 @@ try:
         # df["Contrato"].fillna("", inplace = True)
         sl.write(data)
 
+    # Subheader
+    st.subheader("Características del pozo", divider="gray")
+    
     col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
     with col1:
         lista_campo = list(data.campo.unique())
