@@ -15,7 +15,7 @@ try:
     if file is not None:
         data = pd.read_csv(file, encoding="latin-1")
         # df["Contrato"].fillna("", inplace = True)
-        # sl.write(data)
+        sl.write(data)
 
     col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
     with col1:
