@@ -21,6 +21,7 @@ try:
     with col1:
         lista_campo = list(data.campo.unique())
         select_campo = sl.selectbox("Campo", lista_campo)
+        data = data[data["campo"] == select_campo]
     with col2:
         lista_yac = list(data.yacimiento.unique())
         select_yac = sl.selectbox("Yacimiento", lista_yac)
