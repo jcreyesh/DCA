@@ -59,7 +59,7 @@ if file is not None:
 
     date_1, date_2 = data["fecha"].values[0], data["fecha"].values[-1]
     start_date, end_date = sl.slider("Fechas:", value=(date_1, date_2), format="MM/DD/YY")
-    sl.write(start_date, end_date
+    sl.write(start_date, end_date)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
