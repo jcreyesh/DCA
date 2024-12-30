@@ -18,7 +18,7 @@ sl.subheader("Carga de los datos", divider="gray")
 file = sl.file_uploader("Seleccione la base de datos")
 if file is not None:
     data = pd.read_csv(file, encoding="latin-1")
-    data["fecha"] = pd.to_datetime(data["fecha"], format="%Y/%m/%d)
+    data["fecha"] = pd.to_datetime(data["fecha"], format="%Y/%m/%d")
     sl.write(data)
 
     # Subheader
