@@ -43,7 +43,9 @@ with col4:
     select_fluido = sl.selectbox("Fluido", lista_fluido)
     data = data[data["unidad"] == select_fluido]
 
-    
+sl.subheader("Histórico de producción", divider="gray")
+
+
     # df_pozo = data_pozos[data_pozos["Pozo"] == select_pozo]
 
     # sl.write(df_pozo)
