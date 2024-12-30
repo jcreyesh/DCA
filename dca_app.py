@@ -7,9 +7,6 @@ import streamlit as sl
 import altair as alt
 import plotly.io as pio
 
-# image-dpi
-pio.write_image(fig, "plot_q.png", width=500, height=350, scale =1)
-
 # wide-mode
 sl.set_page_config(layout="wide")
 
@@ -57,6 +54,9 @@ if file is not None:
         return sl.plotly_chart(fig)
     
     plot_q(data, data["fecha"], data["q"])
+    
+    # image-dpi
+    pio.write_image(fig, "plot_q.png", width=500, height=350, scale=1)
 
     sl.subheader("Definición del período de interés", divider="gray")
 
