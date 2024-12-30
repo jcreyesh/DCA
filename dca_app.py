@@ -48,8 +48,8 @@ if file is not None:
                      width=500, height=400)
         fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
         fig.update_traces(line_color="#339966")
-        fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-        fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+        # fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+        # fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
         return sl.plotly_chart(fig)
     
     plot_q(data, data["fecha"], data["q"])
