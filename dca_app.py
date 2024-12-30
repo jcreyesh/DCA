@@ -48,9 +48,7 @@ if file is not None:
     def plot_q(df, x, y):
         fig = px.line(df, x=x, y=y, markers=True, title= data["pozo"].values[0], labels={"q": "q - (Mb / MMPCD)"})
         fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
-        fig.update_traces(line_color="black", marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
-        # fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-        # fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+        fig.update_traces(line_color="black", line_width=1, marker=dict(color="white", size=4.8, line=dict(width=1, color='black')))
         return sl.plotly_chart(fig)
     
     plot_q(data, data["fecha"], data["q"])
