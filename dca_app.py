@@ -45,46 +45,25 @@ with col4:
 
 sl.subheader("Histórico de producción", divider="gray")
 
+# Function for plotting flow rate
+def plot_q(df, x, y):
+    fig = px.line(df, x=x, y=y, markers=True, labels={"q": "q - (Mb / MMPCD)"})
+    fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
+    fig.update_traces(line_color="#339966")
+    fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+    fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+    return fig
 
-    # df_pozo = data_pozos[data_pozos["Pozo"] == select_pozo]
+plot_q(data, data["Fecha"], data["q"])
 
-    # sl.write(df_pozo)
+
+
+
+
+# df_pozo = data_pozos[data_pozos["Pozo"] == select_pozo]
+# sl.write(df_pozo)
     
-    # Plots
-    # def plot_oil(df, x, y, pozo):
-    #     fig = px.line(df, x=x, y=y, markers=True, title="\t"*22 + f"{pozo} <br><sup>{df['Cuenca'].iloc[0]} - {df['Contrato'].iloc[0]}</sup>")
-    #     fig.update_layout(title_x=0.4, title_y=0.85)
-    #     fig.update_traces(line_color="#1F8A70")
-    #     return sl.plotly_chart(fig)
+
+
     
-    # def plot_gas(df, x, y, pozo):
-    #     fig = px.line(df, x=x, y=y, markers=True, title="\t"*22 + f"{pozo} <br><sup>{df['Cuenca'].iloc[0]} - {df['Contrato'].iloc[0]}</sup>")
-    #     fig.update_layout(title_x=0.4, title_y=0.85)
-    #     fig.update_traces(line_color="red")
-    #     return sl.plotly_chart(fig)
-    
-    # def plot_water(df, x, y, pozo):
-    #     fig = px.line(df, x=x, y=y, markers=True, title="\t"*22 + f"{pozo} <br><sup>{df['Cuenca'].iloc[0]} - {df['Contrato'].iloc[0]}</sup>")
-    #     fig.update_layout(title_x=0.4, title_y=0.85)
-    #     fig.update_traces(line_color="blue")
-    #     return sl.plotly_chart(fig)
-    
-    # Oil
-    # plot_oil(df_pozo, df_pozo["Fecha"], df_pozo["Qo_(Mbd)"], select_pozo)
-    # plot_oil(df_pozo, df_pozo["Fecha"], df_pozo["Qo_ac(Mbd)"], select_pozo)
-    
-    # Gas
-    # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Qga_(MMpcd)"], select_pozo)
-    # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Qga_ac(MMpcd)"], select_pozo)
-    
-    # Water
-    # plot_water(df_pozo, df_pozo["Fecha"], df_pozo["Qw_(Mbd)"], select_pozo)
-    # plot_water(df_pozo, df_pozo["Fecha"], df_pozo["Qw_ac(Mbd)"], select_pozo)
-    
-    # Non-associated Gas
-    # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Qgna_(MMpcd)"], select_pozo)
-    # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Qgna_ac(MMpcd)"], select_pozo)
-    
-    # Condensed oil
-    # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Cond_(Mbd)"], select_pozo)
-    # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Cond_ac(Mbd)"], select_pozo)
+
