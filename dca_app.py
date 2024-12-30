@@ -12,6 +12,8 @@ sl.set_page_config(layout="wide")
 # Sidebar
 sl.title("Análisis de Curvas de Declinación")
 
+# Subheader
+sl.subheader("Carga de los datos", divider="gray")
 file = sl.file_uploader("Seleccione la base de datos")
 if file is not None:
     data = pd.read_csv(file, encoding="latin-1")
