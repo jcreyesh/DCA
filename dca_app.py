@@ -51,15 +51,15 @@ if file is not None:
         fig.update_traces(line_color="black", marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
         # fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
         # fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-        return sl.plotly_chart(fig, scale=5)
+        return sl.plotly_chart(fig)
     
     plot_q(data, data["fecha"], data["q"])
     
     sl.subheader("Definición del período de interés", divider="gray")
 
     date_1, date_2 = data["fecha"].values[0], data["fecha"].values[-1]
-    sl.write(date_1, date_2)
-    # start_date, end_date = sl.slider("Fechas:", )
+    start_date, end_date = sl.slider("Fechas:", value=(date_1, date_2), format="MM/DD/YY")
+    sl.write(start_date, end_date
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
