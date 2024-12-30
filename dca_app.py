@@ -41,17 +41,24 @@ if file is not None:
         data = data[data["unidad"] == select_fluido]
     
     sl.subheader("Histórico de producción", divider="gray")
+
+    fig = px.line(data, x=data["fecha"], y=data["q"], markers=True, labels={"q": "q - (Mb / MMPCD)"})
+    fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
+    fig.update_traces(line_color="#339966")
+    fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+    fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+
     
     # Function for plotting flow rate
-    def plot_q(df, x, y):
-        fig = px.line(df, x=x, y=y, markers=True, labels={"q": "q - (Mb / MMPCD)"})
-        fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
-        fig.update_traces(line_color="#339966")
-        fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-        fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
-        return fig
+    # def plot_q(df, x, y):
+    #     fig = px.line(df, x=x, y=y, markers=True, labels={"q": "q - (Mb / MMPCD)"})
+    #     fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
+    #     fig.update_traces(line_color="#339966")
+    #     fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+    #     fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
+    #     return fig
     
-    plot_q(data, data["fecha"], data["q"])
+    # plot_q(data, data["fecha"], data["q"])
 
 
 
