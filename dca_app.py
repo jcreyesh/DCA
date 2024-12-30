@@ -51,7 +51,7 @@ if file is not None:
         fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
         return fig
     
-    plot_q(data, data["Fecha"], data["q"])
+    plot_q(data, data["fecha"], data["q"])
 
 
 
