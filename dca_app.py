@@ -53,7 +53,7 @@ if file is not None:
     
     plot_q(data, data["fecha"], data["q"])
 
-sl.subheader("Definición del período de interés", divider="gray")
+    sl.subheader("Definición del período de interés", divider="gray")
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
