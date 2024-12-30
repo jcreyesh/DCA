@@ -58,7 +58,7 @@ if file is not None:
     date_1 = data["fecha"].values[0]
     date_2 = data["fecha"].values[-1]
     start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY/MM/DD", 
-                                    step=timedelta(months=1)
+                                    step=timedelta(months=1))
     sl.write(start_date, end_date)
 
 
