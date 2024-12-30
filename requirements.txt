@@ -2,3 +2,5 @@ plotly.express
 plotly
 matplotlib
 datetime
+pandas
+numpy
