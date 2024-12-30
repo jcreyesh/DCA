@@ -21,7 +21,7 @@ elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
 
 # Subheader
-# sl.subheader("Definición del pozo", divider="gray")
+sl.subheader("Definición del pozo", divider="gray")
     
 col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
 with col1:
