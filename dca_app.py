@@ -17,6 +17,9 @@ try:
         # df["Contrato"].fillna("", inplace = True)
         sl.write(data)
 
+except:
+    sl.write("Aún no se ha cargado la Base de Datos.")
+
     # Subheader
     sl.subheader("Definición del pozo", divider="gray")
     
@@ -92,5 +95,5 @@ try:
     # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Cond_(Mbd)"], select_pozo)
     # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Cond_ac(Mbd)"], select_pozo)
 
-except:
-    sl.write("Aún no se ha cargado la Base de Datos.")
+# except:
+#     sl.write("Aún no se ha cargado la Base de Datos.")
