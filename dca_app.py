@@ -18,7 +18,7 @@ sl.subheader("Carga de los datos", divider="gray")
 file = sl.file_uploader("Seleccione la base de datos")
 if file is not None:
     data = pd.read_csv(file, encoding="latin-1")
-    data["fecha"] = pd.to_datetime(data["fecha"])
+    data["fecha"] = pd.to_datetime(data["fecha"], format="YYYY/MM/DD")
     sl.write(data)
 
     # Subheader
@@ -58,7 +58,7 @@ if file is not None:
     sl.subheader("Definición del período de interés", divider="gray")
 
     date_1, date_2 = data["fecha"].values[0], data["fecha"].values[-1]
-    start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY-MM-DD")
+    start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY/MM/DD")
     sl.write(start_date, end_date)
 
 elif file == None:
