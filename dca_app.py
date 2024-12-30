@@ -11,15 +11,15 @@ sl.set_page_config(layout="wide")
 # Sidebar
 sl.title("Análisis de Curvas de Declinación")
 
-try:
-    file = sl.file_uploader("Seleccione la base de datos")
-    if file is not None:
-        data = pd.read_csv(file, encoding="latin-1")
-        # df["Contrato"].fillna("", inplace = True)
-        sl.write(data)
+# try:
+file = sl.file_uploader("Seleccione la base de datos")
+if file is not None:
+    data = pd.read_csv(file, encoding="latin-1")
+    # df["Contrato"].fillna("", inplace = True)
+    sl.write(data)
 
-    elif file == None:
-        sl.write("Aún no se ha cargado la Base de Datos.")
+elif file == None:
+    sl.write("Aún no se ha cargado la Base de Datos.")
 
 # except:
 #     sl.write("Aún no se ha cargado la Base de Datos.")
