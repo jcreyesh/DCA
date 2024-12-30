@@ -23,23 +23,23 @@ except:
     # Subheader
     sl.subheader("Definición del pozo", divider="gray")
     
-    col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
-    with col1:
-        lista_campo = list(data.campo.unique())
-        select_campo = sl.selectbox("Campo", lista_campo)
-        data = data[data["campo"] == select_campo]
-    with col2:
-        lista_yac = list(data.yacimiento.unique())
-        select_yac = sl.selectbox("Yacimiento", lista_yac)
-        data = data[data["yacimiento"] == select_yac]
-    with col3:
-        lista_pozo = list(data.pozo.unique())
-        select_pozo = sl.selectbox("Pozo", lista_pozo)
-        data = data[data["pozo"] == select_pozo]
-    with col4:
-        lista_fluido = list(data.unidad.unique())
-        select_fluido = sl.selectbox("Fluido", lista_fluido)
-        data = data[data["unidad"] == select_fluido]
+col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
+with col1:
+    lista_campo = list(data.campo.unique())
+    select_campo = sl.selectbox("Campo", lista_campo)
+    data = data[data["campo"] == select_campo]
+with col2:
+    lista_yac = list(data.yacimiento.unique())
+    select_yac = sl.selectbox("Yacimiento", lista_yac)
+    data = data[data["yacimiento"] == select_yac]
+with col3:
+    lista_pozo = list(data.pozo.unique())
+    select_pozo = sl.selectbox("Pozo", lista_pozo)
+    data = data[data["pozo"] == select_pozo]
+with col4:
+    lista_fluido = list(data.unidad.unique())
+    select_fluido = sl.selectbox("Fluido", lista_fluido)
+    data = data[data["unidad"] == select_fluido]
 
     # lista_campo = list(data.campo.unique())
     # select_campo = sl.selectbox("Seleccion la Cuenca", lista_cuencas)
