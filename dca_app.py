@@ -18,8 +18,11 @@ try:
         # df["Contrato"].fillna("", inplace = True)
         sl.write(data)
 
-except:
-    sl.write("Aún no se ha cargado la Base de Datos.")
+    elif file == None:
+        sl.write("Aún no se ha cargado la Base de Datos.")
+
+# except:
+#     sl.write("Aún no se ha cargado la Base de Datos.")
 
 # Subheader
 # sl.subheader("Definición del pozo", divider="gray")
