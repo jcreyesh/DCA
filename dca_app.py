@@ -56,7 +56,9 @@ if file is not None:
 
     sl.subheader("Definición del período de interés", divider="gray")
 
-    sl.write(type(data["fecha"].values[0]))
+    date_1, date_2 = data["fecha"].values[0], data["fecha"].values[-1]
+    sl.write(date_1, date_2)
+    # start_date, end_date = sl.slider("Fechas:", )
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
