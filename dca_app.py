@@ -25,6 +25,7 @@ try:
     with col2:
         lista_yac = list(data.yacimiento.unique())
         select_yac = sl.selectbox("Yacimiento", lista_yac)
+        data = data[data["yacimiento"] == select_yac]
     with col3:
         lista_pozo = list(data.pozo.unique())
         select_pozo = sl.selectbox("Pozo", lista_pozo)
