@@ -19,17 +19,17 @@ try:
 
     col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
     with col1:
-    lista_campo = list(data.campo.unique())
-    select_campo = sl.selectbox("Seleccion la Cuenca", lista_cuencas)
+        lista_campo = list(data.campo.unique())
+        select_campo = sl.selectbox("Seleccion la Cuenca", lista_cuencas)
     with col2:
-    lista_yac = list(data.yacimiento.unique())
-    select_yac = sl.selectbox("Seleccion el yacimiento", lista_yac)
+        lista_yac = list(data.yacimiento.unique())
+        select_yac = sl.selectbox("Seleccion el yacimiento", lista_yac)
     with col3:
-    lista_pozo = list(data.pozo.unique())
-    select_pozo = sl.selectbox("Seleccion el pozo", lista_pozo)
+        lista_pozo = list(data.pozo.unique())
+        select_pozo = sl.selectbox("Seleccion el pozo", lista_pozo)
     with col4:
-    lista_fluido = list(data.unidad.unique())
-    select_fluido = sl.selectbox("Seleccione el tipo de fluido", lista_fluido)
+        lista_fluido = list(data.unidad.unique())
+        select_fluido = sl.selectbox("Seleccione el tipo de fluido", lista_fluido)
 
 
     # lista_campo = list(data.campo.unique())
