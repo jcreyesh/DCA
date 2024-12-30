@@ -55,7 +55,7 @@ if file is not None:
 
     sl.subheader("Definición del período de interés", divider="gray")
 
-    sl.write(type(data["fecha"]))
+    sl.write(type(data["fecha"].values[0]))
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
