@@ -53,7 +53,7 @@ if file is not None:
         # fig.update_yaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
         return sl.plotly_chart(fig)
     
-    plot_q(data, data["fecha"], data["q"])
+    fig = plot_q(data, data["fecha"], data["q"])
     
     # image-dpi
     pio.write_image(fig, "plot_q.png", width=500, height=350, scale=1)
