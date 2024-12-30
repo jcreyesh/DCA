@@ -57,8 +57,8 @@ if file is not None:
     
     sl.subheader("Definición del período de interés", divider="gray")
 
-    date_1 = datetime(data["fecha"].values[0])
-    date_2 = datetime(data["fecha"].values[-1])
+    date_1 = data["fecha"].values[0]
+    date_2 = data["fecha"].values[-1]
     start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY/MM/DD")
     sl.write(start_date, end_date)
 
