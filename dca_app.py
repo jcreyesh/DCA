@@ -45,7 +45,7 @@ if file is not None:
     # Function for plotting flow rate
     def plot_q(df, x, y):
         fig = px.line(df, x=x, y=y, markers=True, title= data["pozo"].values[0], labels={"q": "q - (Mb / MMPCD)"}, 
-                     width=800, height=400)
+                     width=500, height=400)
         fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
         fig.update_traces(line_color="#339966")
         fig.update_xaxes(mirror=True, ticks="outside", showline=True, linecolor="black", gridcolor="lightgrey")
