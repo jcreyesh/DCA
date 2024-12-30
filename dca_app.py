@@ -6,55 +6,41 @@ import datetime
 import streamlit as sl
 import altair as alt
 
-# wide_mode
+# wide-mode
 sl.set_page_config(layout="wide")
+
 # Sidebar
 sl.title("Análisis de Curvas de Declinación")
 
-# try:
 file = sl.file_uploader("Seleccione la base de datos")
 if file is not None:
     data = pd.read_csv(file, encoding="latin-1")
-    # df["Contrato"].fillna("", inplace = True)
     sl.write(data)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
 
-# except:
-#     sl.write("Aún no se ha cargado la Base de Datos.")
-
 # Subheader
 # sl.subheader("Definición del pozo", divider="gray")
     
-# col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
-# with col1:
-#     lista_campo = list(data.campo.unique())
-#     select_campo = sl.selectbox("Campo", lista_campo)
-#     data = data[data["campo"] == select_campo]
-# with col2:
-#     lista_yac = list(data.yacimiento.unique())
-#     select_yac = sl.selectbox("Yacimiento", lista_yac)
-#     data = data[data["yacimiento"] == select_yac]
-# with col3:
-#     lista_pozo = list(data.pozo.unique())
-#     select_pozo = sl.selectbox("Pozo", lista_pozo)
-#     data = data[data["pozo"] == select_pozo]
-# with col4:
-#     lista_fluido = list(data.unidad.unique())
-#     select_fluido = sl.selectbox("Fluido", lista_fluido)
-#     data = data[data["unidad"] == select_fluido]
+col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
+with col1:
+    lista_campo = list(data.campo.unique())
+    select_campo = sl.selectbox("Campo", lista_campo)
+    data = data[data["campo"] == select_campo]
+with col2:
+    lista_yac = list(data.yacimiento.unique())
+    select_yac = sl.selectbox("Yacimiento", lista_yac)
+    data = data[data["yacimiento"] == select_yac]
+with col3:
+    lista_pozo = list(data.pozo.unique())
+    select_pozo = sl.selectbox("Pozo", lista_pozo)
+    data = data[data["pozo"] == select_pozo]
+with col4:
+    lista_fluido = list(data.unidad.unique())
+    select_fluido = sl.selectbox("Fluido", lista_fluido)
+    data = data[data["unidad"] == select_fluido]
 
-    # lista_campo = list(data.campo.unique())
-    # select_campo = sl.selectbox("Seleccion la Cuenca", lista_cuencas)
-    
-    # data_cuencas = data[data["Cuenca"] == select_cuenca]
-    # lista_campos = list(data_cuencas.Contrato.unique())
-    # select_campo = sl.selectbox("Seleccione el Contrato o Asignación", lista_campos)
-    
-    # data_pozos = data[data["Contrato"] == select_campo]
-    # lista_pozos = list(data_pozos.Pozo.unique())
-    # select_pozo = sl.selectbox("Seleccione el pozo", lista_pozos)
     
     # df_pozo = data_pozos[data_pozos["Pozo"] == select_pozo]
 
@@ -98,6 +84,3 @@ elif file == None:
     # Condensed oil
     # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Cond_(Mbd)"], select_pozo)
     # plot_gas(df_pozo, df_pozo["Fecha"], df_pozo["Cond_ac(Mbd)"], select_pozo)
-
-# except:
-#     sl.write("Aún no se ha cargado la Base de Datos.")
