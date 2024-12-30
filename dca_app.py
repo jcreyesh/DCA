@@ -58,7 +58,7 @@ if file is not None:
     sl.subheader("Definición del período de interés", divider="gray")
 
     date_1, date_2 = data["fecha"].values[0], data["fecha"].values[-1]
-    start_date, end_date = sl.slider("Fechas:", date_1, date_2, (date_1, date_2), format="MM/DD/YY")
+    start_date, end_date = sl.slider("Fechas:", date_1, date_2, (date_1, date_2))
     sl.write(start_date, end_date)
 
 elif file == None:
