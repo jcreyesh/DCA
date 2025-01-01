@@ -81,9 +81,9 @@ if file is not None:
         p_meses = sl.number_input("Proyección (meses):", value=12)
     
     sl.subheader("Resultados", divider="gray")
-
+         pd.to_datetime(data["fecha"]).dt.date
     # Fechas
-    f1 = pd.to_datetime(data["fecha"].values[0]).dt.date
+    f1 = pd.to_datetime(data["fecha"][0]).dt.date
     # f1 = datetime.date(f1)
     f2 = (pd.to_datetime(data["fecha"].values[-1]) + relativedelta(months=p_meses)).dt.date
     # f2 = datetime.date(f2)
