@@ -112,7 +112,7 @@ if file is not None:
     sl.write(df_dec)
     
     # Download button
-    @sl.cache
+    @sl.cache_data
     def convert_csv(df):
         return df.to_csv(index=False).encode("utf-8")
         
