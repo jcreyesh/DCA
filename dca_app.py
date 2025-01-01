@@ -63,15 +63,25 @@ if file is not None:
 
     start_date = start_date.replace(day=1)
     data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
+
+    sl.write(data)
+    
+    # Computing D-constant
+    time = data["t"]
+    qi = df_well["q"].values[0]
+    # qi = 500
+    # qi = mean(q[1:8])
+    q = np.array([i if i != 0 else 1 for i in df_well["q"]])
+    D1 = sum(time*np.log(qi/q))/(sum(time**2))
+    D1
+
+
     plot_q(data, data["fecha"], data["q"], 2)
 
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
 
-
-# df_pozo = data_pozos[data_pozos["Pozo"] == select_pozo]
-# sl.write(df_pozo)
     
 
 
