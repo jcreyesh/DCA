@@ -121,7 +121,7 @@ if file is not None:
     #           secondary_y=False)
     # fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
 
-    fig = px.line(data, x=data["fecha"], y=data["q"], markers=True, title= data["pozo"].values[0], labels={"q": "q - (Mb / MMPCD)"})
+    fig.add_trace(go.line(data, x=data["fecha"], y=data["q"], markers=True, title= data["pozo"].values[0], labels={"q": "q - (Mb / MMPCD)"}))
     fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
     fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
     sl.plotly_chart(fig, key = 2)
