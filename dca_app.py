@@ -117,7 +117,7 @@ if file is not None:
         return df.to_csv(index=False).encode("utf-8")
         
     csv = convert_csv(df_dec)
-    sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}" + ".csv", mime="text/csv")
+    sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}_meses" + ".csv", mime="text/csv")
     
 
     plot_q(data, data["fecha"], data["q"], 2)
