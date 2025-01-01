@@ -61,7 +61,7 @@ if file is not None:
     start_date, end_date = sl.slider("Fechas:", min_value=date_1, max_value=date_2, value=(date_1, date_2), format="YYYY/MM/DD", 
                                     step=timedelta(days=1))
     
-    data = data[(data["fecha"] >= start_date & (data["fecha"] <= end_date)]
+    data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
     # data = data[(data["fecha"] >= start_date - relativedelta(months=1)) & (data["fecha"] <= end_date)]
     plot_q(data, data["fecha"], data["q"])
 
