@@ -111,7 +111,11 @@ if file is not None:
     df_dec["Fecha"] = pd.to_datetime(df_dec["Fecha"]).dt.date
     sl.write(df_dec)
     
-    # Download button 
+    # Download button
+    @sl.cache
+    def convert_csv(df):
+        return df.to_csv(index=False).encode("utf-8")
+        
     csv = convert_csv(df_dec)
     sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + ".csv", mime="text/csv")
     
