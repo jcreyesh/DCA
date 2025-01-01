@@ -71,7 +71,7 @@ if file is not None:
     q = np.array([i if i != 0 else 1 for i in data["q"]])
     D1 = sum(time*np.log(qi/q))/(sum(time**2))
 
-
+    # input constants
     col1, col2, col3 = sl.columns([1, 1, 1])
     with col1:
         d1 = sl.number_input("Constante D:", value=D1)
@@ -80,9 +80,35 @@ if file is not None:
     with col3:
         p_meses = sl.number_input("Proyección (meses):", value=12)
     
-
-    
     sl.subheader("Resultados", divider="gray")
+
+    # Fechas
+    f1 = pd.to_datetime(df_well["Fecha"].values[0])
+    f2 = pd.to_datetime(df_well["Fecha"].values[-1]) + relativedelta(months=p_meses)
+    fecha = pd.date_range(f1, f2, freq="MS")
+    t = np.arange(len(fecha))
+    
+    # Declinación exponencial
+    qo_exp = qi * np.exp(-D1 * t)
+    Np_exp = 1/D1*(qi - qo_exp)
+    
+    # Declinación hiperbólica
+    b = 0.65
+    qo_hip = qi/(1 + D1*b*t)**(1/b)
+    Np_hip = (qi**(b) * (qi**(1 - b) - qo_hip**(1 - b)))/(D1*(1 - b))
+    
+    # Declinación armónica
+    qo_arm = qi/(1 + D1*t)
+    Np_arm = (qi/D1)*np.log(1 + D1*t)
+    
+    # Creando el dataframe
+    data_dec = {"t":t, "Fecha":fecha, "Qo_exp":qo_exp, "Np_exp":Np_exp, "Qo_hip":qo_hip, "Np_hip":Np_hip,
+            "Qo_arm":qo_arm, "Np_arm":Np_arm}
+    
+    df_dec = pd.DataFrame(data_dec)
+
+    sl.write(df_dec)
+
     plot_q(data, data["fecha"], data["q"], 2)
 
 
