@@ -133,7 +133,7 @@ if file is not None:
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)
 
     fig.update_layout(yaxis2=dict(tickmode="sync"))
-    fig.layout.yaxis2.showgrid=False
+    fig["layout"]["yaxis2"]["showgrid"] = False
     fig.update_layout(width=1400, height=600)
     sl.plotly_chart(fig, key = 2)
 
