@@ -119,7 +119,7 @@ if file is not None:
     # Real
     fig.add_trace(go.Scatter(x=data["fecha"], mode="lines", y=data["q"], name="real"), 
               secondary_y=False)
-    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
+    fig.update_traces(line_color="black", line_width=1.8, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
     
     # Exponencial
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp"), secondary_y=False)
