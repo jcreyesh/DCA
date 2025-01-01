@@ -117,9 +117,9 @@ if file is not None:
     fig = make_subplots(specs=[[{"secondary_y":True}]])
 
     # Real
-    fig.add_trace(go.Scatter(x=data["fecha"], mode="lines + markers", y=data["q"], name="real"), 
-              secondary_y=False)
-    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
+    # fig.add_trace(go.Scatter(x=data["fecha"], mode="lines + markers", y=data["q"], name="real"), 
+    #           secondary_y=False)
+    # fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
     
     # Exponencial
     # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp"), secondary_y=False)
@@ -133,7 +133,12 @@ if file is not None:
     # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_arm"], name="Arm"), secondary_y=False)
     # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)
 
-    plot_q(data, data["fecha"], data["q"], 2)
+    fig = px.line(data, x=data["fecha"], y=data["q"], markers=True, title= data["pozo"].values[0], labels={"q": "q - (Mb / MMPCD)"})
+    fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
+    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
+    sl.plotly_chart(fig, key = 2)
+    
+    
     # Plot-properties
     # fig.update_layout(yaxis2=dict(tickmode="sync"))
     # fig.update_yaxes(secondary_y=True, showgrid=False)
