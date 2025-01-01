@@ -72,6 +72,8 @@ if file is not None:
     qi = data["q"].values[0]
     q = np.array([i if i != 0 else 1 for i in data["q"]])
     D1 = sum(time*np.log(qi/q))/(sum(time**2))
+    sl.write(qi)
+    sl.write(q[:5])
     sl.write(D1)
 
     
