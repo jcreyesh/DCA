@@ -65,18 +65,17 @@ if file is not None:
     data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
     data.insert(0, "t", range(len(data)))
     
-    sl.write(data)
-    
     # Computing D-constant
     time = data["t"]
     qi = data["q"].values[0]
     q = np.array([i if i != 0 else 1 for i in data["q"]])
     D1 = sum(time*np.log(qi/q))/(sum(time**2))
-
+    
+    d1 = sl.number_input("Constante D:", value=D1)
+    
 
     
-    
-
+    sl.subheader("Resultados", divider="gray")
     plot_q(data, data["fecha"], data["q"], 2)
 
 
