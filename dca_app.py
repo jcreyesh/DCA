@@ -63,11 +63,8 @@ if file is not None:
 
     start_date = start_date.replace(day=1)
     data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
-    # data = data[(data["fecha"] >= start_date - relativedelta(months=1)) & (data["fecha"] <= end_date)]
-    sl.write(start_date)
     plot_q(data, data["fecha"], data["q"], 2)
 
-    sl.write(data)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
