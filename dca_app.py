@@ -46,13 +46,14 @@ if file is not None:
     sl.subheader("Histórico de producción", divider="gray")
     
     # Function for plotting flow rate
-    def plot_q(df, x, y):
+    def plot_q(df, x, y, key):
         fig = px.line(df, x=x, y=y, markers=True, title= data["pozo"].values[0], labels={"q": "q - (Mb / MMPCD)"})
         fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
         fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
-        return sl.plotly_chart(fig)
+        count += 1
+        return sl.plotly_chart(fig, key = key)
     
-    plot_q(data, data["fecha"], data["q"])
+    plot_q(data, data["fecha"], data["q"], 1)
 
     # Date range slider
     sl.subheader("Definición del período de interés", divider="gray")
@@ -62,11 +63,11 @@ if file is not None:
                                     step=timedelta(days=1))
 
     start_date.replace(day=1)
-    data2 = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
+    data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
     # data = data[(data["fecha"] >= start_date - relativedelta(months=1)) & (data["fecha"] <= end_date)]
-    plot_q(data2, data2["fecha"], data2["q"])
+    plot_q(data, data["fecha"], data["q"], 2)
 
-    sl.write(data2)
+    sl.write(data)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
