@@ -72,17 +72,14 @@ if file is not None:
     D1 = sum(time*np.log(qi/q))/(sum(time**2))
 
 
-    col1, col2, col3, col4 = sl.columns([1, 1, 1, 1])
+    col1, col2, col3 = sl.columns([1, 1, 1])
     with col1:
         d1 = sl.number_input("Constante D:", value=D1)
     with col2:
         b = sl.number_input("Constante b:", value=0.5)
     with col3:
         p_meses = sl.number_input("Proyección (meses):", value=12)
-        
-    sl.write(d1)
-    sl.write(b)
-    sl.write(p_meses)
+    
 
     
     sl.subheader("Resultados", divider="gray")
