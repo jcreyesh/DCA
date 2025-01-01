@@ -68,12 +68,13 @@ if file is not None:
     sl.write(data)
     
     # Computing D-constant
-    # time = data["t"]
-    # qi = df_well["q"].values[0]
-    # q = np.array([i if i != 0 else 1 for i in df_well["q"]])
-    # D1 = sum(time*np.log(qi/q))/(sum(time**2))
-    # D1
+    time = data["t"]
+    qi = data["q"].values[0]
+    q = np.array([i if i != 0 else 1 for i in data["q"]])
+    D1 = sum(time*np.log(qi/q))/(sum(time**2))
+    sl.write(D1)
 
+    
     
 
     plot_q(data, data["fecha"], data["q"], 2)
