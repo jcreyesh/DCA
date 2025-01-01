@@ -126,7 +126,7 @@ if file is not None:
     fig = make_subplots(specs=[[{"secondary_y":True}]])
 
     # Real
-    fig.add_trace(go.Scatter(x=df_well["fecha"], mode="lines + markers", y=df_well["q"], name="real"), 
+    fig.add_trace(go.Scatter(x=data["fecha"], mode="lines + markers", y=data["q"], name="real"), 
               secondary_y=False)
     
     # Exponencial
