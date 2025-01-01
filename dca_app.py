@@ -112,18 +112,7 @@ if file is not None:
             "Qo_arm":qo_arm, "Np_arm":Np_arm}
     
     df_dec = pd.DataFrame(data_dec)
-    df_dec["Fecha"] = pd.to_datetime(df_dec["Fecha"]).dt.date
-    sl.write(df_dec)
-    
-    # Download button
-    @sl.cache_data
-    def convert_csv(df):
-        return df.to_csv(index=False).encode("utf-8")
-        
-    csv = convert_csv(df_dec)
-    sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}_meses" + ".csv", mime="text/csv")
-    
-    # plot_q(data, data["fecha"], data["q"], 2)
+    df_dec["Fecha"] = pd.to_datetime(df_dec["Fecha"]).dt.date   
 
     fig = make_subplots(specs=[[{"secondary_y":True}]])
 
@@ -146,8 +135,17 @@ if file is not None:
     fig.update_layout(width=1400, height=600)
     sl.plotly_chart(fig, key = 2)
 
+    # Download button
+    sl.write(df_dec)
+    @sl.cache_data
+    def convert_csv(df):
+        return df.to_csv(index=False).encode("utf-8")
+        
+    csv = convert_csv(df_dec)
+    sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}_meses" + ".csv", mime="text/csv")
+
 elif file == None:
-    sl.write("Aún no se ha cargado la Base de Datos.")
+    sl.write("Aún no se ha cargado la Base de Datos")
 
     
 
