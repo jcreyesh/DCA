@@ -126,8 +126,8 @@ if file is not None:
     # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_exp"], name="Np_Exp"), secondary_y=True)
     
     # Hiperbólica
-    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_hip"], name="Hip"), secondary_y=False)
-    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_hip"], name="Np_Hip"), secondary_y=True)
+    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_hip"], name="Hip"), secondary_y=False)
+    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_hip"], name="Np_Hip"), secondary_y=True)
     
     # Armónica
     # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_arm"], name="Arm"), secondary_y=False)
