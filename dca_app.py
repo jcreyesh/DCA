@@ -103,13 +103,13 @@ if file is not None:
     qo_arm = qi/(1 + D1*t)
     Np_arm = (qi/D1)*np.log(1 + D1*t)
     
-    # pd.to_datetime(data["fecha"]).dt.date
     # Creando el dataframe
     data_dec = {"t":t, "Fecha":fecha.dt.date, "Qo_exp":qo_exp, "Np_exp":Np_exp, "Qo_hip":qo_hip, "Np_hip":Np_hip,
             "Qo_arm":qo_arm, "Np_arm":Np_arm}
     
     df_dec = pd.DataFrame(data_dec)
-
+    df_dec["Fecha"] = pd.to_datetime(df_dec["Fecha"]).dt.date
+    
     sl.write(df_dec)
 
     plot_q(data, data["fecha"], data["q"], 2)
