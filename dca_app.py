@@ -110,7 +110,7 @@ if file is not None:
     df_dec = pd.DataFrame(data_dec)
     df_dec["Fecha"] = pd.to_datetime(df_dec["Fecha"]).dt.date
     sl.write(df_dec)
-    sl.download_button(label="Download CSV", data=data_dec, file_name="Proyección_" + f"{selec_pozo}_" + f"{p_meses}" ".csv", mime="text/csv")
+    sl.download_button(label="Download CSV", data=data_dec, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}" ".csv", mime="text/csv")
     
 
     plot_q(data, data["fecha"], data["q"], 2)
