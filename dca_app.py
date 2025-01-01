@@ -80,9 +80,9 @@ if file is not None:
     with col3:
         p_meses = sl.number_input("Proyección (meses):", value=12)
         
-   sl.write(d1)
-   sl.write(b)
-   sl.write(p_meses)
+    sl.write(d1)
+    sl.write(b)
+    sl.write(p_meses)
 
     
     sl.subheader("Resultados", divider="gray")
