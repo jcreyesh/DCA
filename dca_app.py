@@ -42,6 +42,8 @@ if file is not None:
         lista_fluido = list(data.unidad.unique())
         select_fluido = sl.selectbox("Fluido", lista_fluido)
         data = data[data["unidad"] == select_fluido]
+
+    data.insert(0, "t", range(len(ddata)))
     
     sl.subheader("Histórico de producción", divider="gray")
     
