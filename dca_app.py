@@ -81,11 +81,11 @@ if file is not None:
         p_meses = sl.number_input("Proyección (meses):", value=12)
     
     sl.subheader("Resultados", divider="gray")
-         pd.to_datetime(data["fecha"]).dt.date
+
     # Fechas
-    f1 = pd.to_datetime(data["fecha"][0]).dt.date
+    f1 = pd.to_datetime(data["fecha"].values[0])
     # f1 = datetime.date(f1)
-    f2 = (pd.to_datetime(data["fecha"].values[-1]) + relativedelta(months=p_meses)).dt.date
+    f2 = (pd.to_datetime(data["fecha"].values[-1]) + relativedelta(months=p_meses))
     # f2 = datetime.date(f2)
     fecha = pd.date_range(f1, f2, freq="MS")
     t = np.arange(len(fecha))
@@ -103,8 +103,9 @@ if file is not None:
     qo_arm = qi/(1 + D1*t)
     Np_arm = (qi/D1)*np.log(1 + D1*t)
     
+    # pd.to_datetime(data["fecha"]).dt.date
     # Creando el dataframe
-    data_dec = {"t":t, "Fecha":fecha, "Qo_exp":qo_exp, "Np_exp":Np_exp, "Qo_hip":qo_hip, "Np_hip":Np_hip,
+    data_dec = {"t":t, "Fecha":fecha.dt.date, "Qo_exp":qo_exp, "Np_exp":Np_exp, "Qo_hip":qo_hip, "Np_hip":Np_hip,
             "Qo_arm":qo_arm, "Np_arm":Np_arm}
     
     df_dec = pd.DataFrame(data_dec)
