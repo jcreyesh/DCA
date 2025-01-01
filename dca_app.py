@@ -134,7 +134,7 @@ if file is not None:
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)
 
     # Plot-properties
-    fig.update_layout(yaxis2=dict(tickmode="sync"))
+    # fig.update_layout(yaxis2=dict(tickmode="sync"))
     fig.update_yaxes(secondary_y=True, showgrid=False)
     
     fig.update_yaxes(rangemode='tozero')
