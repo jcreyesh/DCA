@@ -42,8 +42,7 @@ if file is not None:
         lista_fluido = list(data.unidad.unique())
         select_fluido = sl.selectbox("Fluido", lista_fluido)
         data = data[data["unidad"] == select_fluido]
-        data.insert(0, "t", range(len(data)))
-    
+        
     sl.subheader("Histórico de producción", divider="gray")
     
     # Function for plotting flow rate
@@ -64,7 +63,8 @@ if file is not None:
 
     start_date = start_date.replace(day=1)
     data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
-
+    data.insert(0, "t", range(len(data)))
+    
     sl.write(data)
     
     # Computing D-constant
