@@ -62,11 +62,11 @@ if file is not None:
                                     step=timedelta(days=1))
 
     start_date.replace(day=1)
-    data = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
+    data2 = data[(data["fecha"] >= start_date) & (data["fecha"] <= end_date)]
     # data = data[(data["fecha"] >= start_date - relativedelta(months=1)) & (data["fecha"] <= end_date)]
-    plot_q(data, data["fecha"], data["q"])
+    plot_q(data2, data2["fecha"], data2["q"])
 
-    sl.write(data)
+    sl.write(data2)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
