@@ -113,7 +113,7 @@ if file is not None:
     
     # Download button 
     csv = convert_csv(df_dec)
-    sl.download_button(label="Download CSV", data=data_dec, file_name="Proyección_" + f"{select_pozo}_" + ".csv", mime="text/csv")
+    sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + ".csv", mime="text/csv")
     
 
     plot_q(data, data["fecha"], data["q"], 2)
