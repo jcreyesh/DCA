@@ -119,6 +119,7 @@ if file is not None:
     # Real
     fig.add_trace(go.Scatter(x=data["fecha"], mode="lines + markers", y=data["q"], name="real"), 
               secondary_y=False)
+    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.2, line=dict(width=1.2, color='black')))
     
     # Exponencial
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp"), secondary_y=False)
@@ -135,8 +136,6 @@ if file is not None:
     # Plot-properties
     fig.update_layout(yaxis2=dict(tickmode="sync"))
     fig.update_yaxes(secondary_y=True, showgrid=False)
-
-    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=2, line=dict(width=1.2, color='black')))
     
     fig.update_yaxes(rangemode='tozero')
     # fig.update_yaxes(range=[-1, max(data["q"]) + 5], secondary_y=False)
