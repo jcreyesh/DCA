@@ -136,7 +136,7 @@ if file is not None:
     fig.update_layout(yaxis2=dict(tickmode="sync"))
     fig.update_yaxes(secondary_y=True, showgrid=False)
 
-    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
+    fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=2, line=dict(width=1.2, color='black')))
     
     fig.update_yaxes(rangemode='tozero')
     # fig.update_yaxes(range=[-1, max(data["q"]) + 5], secondary_y=False)
