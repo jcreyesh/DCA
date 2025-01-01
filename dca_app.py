@@ -134,14 +134,14 @@ if file is not None:
     # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)   
     
     # Plot-properties
-    # fig.update_layout(yaxis2=dict(tickmode="sync"))
-    # fig.update_yaxes(secondary_y=True, showgrid=False)
+    fig.update_layout(yaxis2=dict(tickmode="sync"))
+    fig.update_yaxes(secondary_y=True, showgrid=False)
     
     fig.update_yaxes(rangemode='tozero')
     # fig.update_yaxes(range=[-5, max(data["q"]) + 5], secondary_y=False)
     # fig.update_yaxes(range=[-5, max(df_dec["Np_arm"]) + 300], secondary_y=True)
-    # fig.update_layout(width=1400, height=600)
-    # fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
+    fig.update_layout(width=1400, height=600)
+    fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
     sl.plotly_chart(fig, key = 2)
 
     # Download button
