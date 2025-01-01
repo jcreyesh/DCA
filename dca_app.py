@@ -74,8 +74,10 @@ if file is not None:
     D1 = sum(time*np.log(qi/q))/(sum(time**2))
 
     # input constants
-    col1, col2, col3 = sl.columns([1, 1, 1])
+    col1, col2, col3 = sl.columns([1, 1, 1, 1])
     with col1:
+        qi = sl.number_input("Gasto inicial:", value=qi)
+    with col2:
         d1 = sl.number_input("Constante D:", value=D1)
     with col2:
         b = sl.number_input("Constante b:", value=0.5)
