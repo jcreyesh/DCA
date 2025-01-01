@@ -131,7 +131,8 @@ if file is not None:
     # Armónica
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_arm"], name="Arm"), secondary_y=False)
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)
-    
+
+    fig.update_layout(yaxis2=dict(tickmode="sync"))
     fig.update_layout(width=1400, height=600)
     sl.plotly_chart(fig, key = 2)
 
