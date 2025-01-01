@@ -121,10 +121,14 @@ if file is not None:
     csv = convert_csv(df_dec)
     sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}_meses" + ".csv", mime="text/csv")
     
-    plot_q(data, data["fecha"], data["q"], 2)
+    # plot_q(data, data["fecha"], data["q"], 2)
 
     fig = make_subplots(specs=[[{"secondary_y":True}]])
-        
+
+    # Real
+    fig.add_trace(go.Scatter(x=df_well["fecha"], mode="lines + markers", y=df_well["q"], name="real"), 
+              secondary_y=False)
+    
     # Exponencial
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp"), secondary_y=False)
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_exp"], name="Np_Exp"), secondary_y=True)
@@ -138,7 +142,7 @@ if file is not None:
     fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)
     
     fig.update_layout(width=1400, height=600)
-
+    sl.plotly_chart(fig, key = 2)
 
 elif file == None:
     sl.write("Aún no se ha cargado la Base de Datos.")
