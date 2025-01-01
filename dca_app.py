@@ -83,10 +83,10 @@ if file is not None:
     sl.subheader("Resultados", divider="gray")
 
     # Fechas
-    f1 = pd.to_datetime(data["fecha"].values[0])
-    f1 = datetime.date(f1)
-    f2 = pd.to_datetime(data["fecha"].values[-1]) + relativedelta(months=p_meses)
-    f2 = datetime.date(f2)
+    f1 = pd.to_datetime(data["fecha"].values[0]).date()
+    # f1 = datetime.date(f1)
+    f2 = pd.to_datetime(data["fecha"].values[-1]) + relativedelta(months=p_meses).date()
+    # f2 = datetime.date(f2)
     fecha = pd.date_range(f1, f2, freq="MS")
     t = np.arange(len(fecha))
     
