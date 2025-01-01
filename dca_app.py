@@ -7,6 +7,8 @@ from dateutil.relativedelta import relativedelta
 import streamlit as sl
 import altair as alt
 import plotly.io as pio
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 # wide-mode
 sl.set_page_config(layout="wide")
@@ -119,8 +121,23 @@ if file is not None:
     csv = convert_csv(df_dec)
     sl.download_button(label="Download CSV", data=csv, file_name="Proyección_" + f"{select_pozo}_" + f"{p_meses}_meses" + ".csv", mime="text/csv")
     
-
     plot_q(data, data["fecha"], data["q"], 2)
+
+    fig = make_subplots(specs=[[{"secondary_y":True}]])
+        
+    # Exponencial
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp"), secondary_y=False)
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_exp"], name="Np_Exp"), secondary_y=True)
+    
+    # Hiperbólica
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_hip"], name="Hip"), secondary_y=False)
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_hip"], name="Np_Hip"), secondary_y=True)
+    
+    # Armónica
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_arm"], name="Arm"), secondary_y=False)
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)
+    
+    fig.update_layout(width=1400, height=600)
 
 
 elif file == None:
