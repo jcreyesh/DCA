@@ -93,6 +93,7 @@ if file is not None:
     # f2 = datetime.date(f2)
     fecha = pd.date_range(f1, f2, freq="MS")
     t = np.arange(len(fecha))
+    pozo = np.repeat(df_well["pozo"].values[0], len(fecha))
     
     # Declinación exponencial
     qo_exp = qi * np.exp(-D1 * t)
@@ -108,7 +109,7 @@ if file is not None:
     Np_arm = (qi/D1)*np.log(1 + D1*t)
     
     # Creando el dataframe
-    data_dec = {"t":t, "Fecha":fecha, "Qo_exp":qo_exp, "Np_exp":Np_exp, "Qo_hip":qo_hip, "Np_hip":Np_hip,
+    data_dec = {"t":t, "Pozo":pozo, "Fecha":fecha, "Qo_exp":qo_exp, "Np_exp":Np_exp, "Qo_hip":qo_hip, "Np_hip":Np_hip,
             "Qo_arm":qo_arm, "Np_arm":Np_arm}
     
     df_dec = pd.DataFrame(data_dec)
@@ -141,7 +142,7 @@ if file is not None:
     # fig.update_yaxes(rangemode='tozero')
     fig.update_yaxes(range=[0, max(data["q"]) + 10], secondary_y=False)
     fig.update_yaxes(range=[0, max(df_dec["Np_arm"]) + 300], secondary_y=True)
-    fig.update_layout(width=1400, height=600, hovermode="x unified", xaxis_title="Fecha", yaxis_title="q - (Mb/MMPCD)")
+    fig.update_layout(title=f"{data[]}", width=1400, height=600, hovermode="x unified", xaxis_title="Fecha", yaxis_title="q - (Mb/MMPCD)")
     sl.plotly_chart(fig, key = 2)
 
     # Download button
