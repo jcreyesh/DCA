@@ -114,6 +114,7 @@ if file is not None:
     df_dec = pd.DataFrame(data_dec)
     df_dec["Fecha"] = pd.to_datetime(df_dec["Fecha"]).dt.date   
 
+    df_dec = df_dec.round(2)
     fig = make_subplots(specs=[[{"secondary_y":True}]])
 
     # Real
