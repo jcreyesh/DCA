@@ -138,7 +138,7 @@ if file is not None:
     fig.update_yaxes(secondary_y=True, showgrid=False)
     
     # fig.update_yaxes(rangemode='tozero')
-    fig.update_yaxes(range=[0, max(data["q"]) + 5], secondary_y=False)
+    fig.update_yaxes(range=[0, max(data["q"]) + 10], secondary_y=False)
     fig.update_yaxes(range=[0, max(df_dec["Np_arm"]) + 300], secondary_y=True)
     fig.update_layout(width=1400, height=600)
     fig.update_layout(title_x=0.4, title_y=0.85, plot_bgcolor="white")
