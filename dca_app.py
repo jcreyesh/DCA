@@ -50,8 +50,8 @@ if file is not None:
     # Function for plotting flow rate
     def plot_q(df, x, y, key):
         fig = px.line(df, x=x, y=y, markers=True, title= data["pozo"].values[0])
-        fig.update_layout(title_x=0.45, title_y=0.85, plot_bgcolor="white", xaxis_title="<b>Fecha<b>", 
-                      yaxis_title="<b>q - (Mb/MMPCD)<b>", hovermode="x unified")
+        fig.update_layout(title_x=0.45, title_y=0.9, plot_bgcolor="white", xaxis_title="<b>Fecha<b>", 
+                      yaxis_title="<b>q - (Mb/MMPCD)<b>", hovermode="x unified", title_font_size = 18)
         fig.update_traces(line_color="black", line_width=1.1, marker=dict(color="white", size=4.8, 
                           line=dict(width=1.2, color="black")))
         return sl.plotly_chart(fig, key = key)
