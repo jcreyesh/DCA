@@ -144,9 +144,9 @@ if file is not None:
     # fig.update_yaxes(rangemode='tozero')
     fig.update_yaxes(range=[0, max(data["q"]) + 10], secondary_y=False)
     fig.update_yaxes(range=[0, max(df_dec["Np_arm"]) + 300], secondary_y=True)
-    fig.update_layout(title=f"{df_dec["Pozo"].values[0]}", title_font_size = 18, title_x = 0.45, title_y = 0.95, width=1400, height=600, hovermode="x unified", xaxis_title="<b>Fecha<b>", 
+    fig.update_layout(title=f"{df_dec["Pozo"].values[0]}", title_font_size = 18, title_x = 0.45, title_y = 1, width=1400, height=600, hovermode="x unified", xaxis_title="<b>Fecha<b>", 
                       yaxis_title="<b>q - (Mb/MMPCD)<b>")
-    fig.update_layout(legend=dict(orientation="h", yanchor="top", xanchor="center", y=1.10, x=0.45, font_size=14, bordercolor="grey",borderwidth=1))
+    fig.update_layout(legend=dict(orientation="h", yanchor="top", xanchor="center", y=1.1, x=0.45, font_size=14, bordercolor="grey",borderwidth=1))
     sl.plotly_chart(fig, key = 2)
 
     # Download button
