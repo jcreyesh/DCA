@@ -122,16 +122,16 @@ if file is not None:
     fig.update_traces(line_color="black", line_width=1.8, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
     
     # Exponencial
-    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp", color="red"), secondary_y=False)
-    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_exp"], name="Np_Exp", color="red"), secondary_y=True)
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_exp"], name="Exp", line=dict(color="red")), secondary_y=False)
+    fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_exp"], name="Np_Exp", line=dict(color="red", dash="dash")), secondary_y=True)
     
     # Hiperbólica
-    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_hip"], name="Hip"), secondary_y=False)
-    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_hip"], name="Np_Hip"), secondary_y=True)
+    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_hip"], name="Hip", line=dict(color="purple")), secondary_y=False)
+    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_hip"], name="Np_Hip", line=dict(color="purple", dash="dash")), secondary_y=True)
     
     # Armónica
-    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_arm"], name="Arm"), secondary_y=False)
-    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm"), secondary_y=True)   
+    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Qo_arm"], name="Arm", line=dict(color="green")), secondary_y=False)
+    # fig.add_trace(go.Scatter(x=df_dec["Fecha"], y=df_dec["Np_arm"], name="Np_Arm", line=dict(color="green", dash="dash"), secondary_y=True)   
     
     # Plot-properties
     fig.update_layout(yaxis2=dict(tickmode="sync"))
