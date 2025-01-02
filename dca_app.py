@@ -93,7 +93,7 @@ if file is not None:
     # f2 = datetime.date(f2)
     fecha = pd.date_range(f1, f2, freq="MS")
     t = np.arange(len(fecha))
-    pozo = np.repeat(df_well["pozo"].values[0], len(fecha))
+    pozo = np.repeat(data["pozo"].values[0], len(fecha))
     
     # Declinación exponencial
     qo_exp = qi * np.exp(-D1 * t)
