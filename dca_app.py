@@ -142,7 +142,7 @@ if file is not None:
     # fig.update_yaxes(rangemode='tozero')
     fig.update_yaxes(range=[0, max(data["q"]) + 10], secondary_y=False)
     fig.update_yaxes(range=[0, max(df_dec["Np_arm"]) + 300], secondary_y=True)
-    fig.update_layout(title=f"{df_dec["Pozo"].values[0]}", title_x = 0.45, title_y = 0.85, width=1400, height=600, hovermode="x unified", xaxis_title="Fecha", 
+    fig.update_layout(title=f"<b>{df_dec["Pozo"].values[0]}<b>", title_x = 0.45, title_y = 0.85, width=1400, height=600, hovermode="x unified", xaxis_title="Fecha", 
                       yaxis_title="q - (Mb/MMPCD)")
     sl.plotly_chart(fig, key = 2)
 
