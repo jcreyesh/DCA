@@ -121,7 +121,7 @@ if file is not None:
     fig = make_subplots(specs=[[{"secondary_y":True}]])
 
     # Real
-    fig.add_trace(go.Scatter(x=data["fecha"], mode="lines + markers", y=data["q"], name="Real"),
+    fig.add_trace(go.Scatter(x=data["fecha"], mode="markers", y=data["q"], name="Real"),
               secondary_y=False)
     fig.update_traces(line_color="black", line_width=1.8, marker=dict(color="white", size=4.8, line=dict(width=1.2, color='black')))
     
